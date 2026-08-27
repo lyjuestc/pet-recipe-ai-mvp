@@ -1,14 +1,25 @@
+import { RecipeService } from '../service/RecipeService';
+
 @Entry
 @Component
 struct RecipeDetailPage {
+  @State title: string = 'AI 食谱详情';
+  @State content: string = '等待生成食谱';
+
+  aboutToAppear() {
+    const recipe = new RecipeService().getLastRecipe?.();
+    if (recipe) {
+      this.title = recipe.title;
+      this.content = recipe.ingredients.join('、') + '\n\n' + recipe.steps.join('\n');
+    }
+  }
 
   build() {
     Column() {
-      Text('🍲 牛肉南瓜餐')
-        .fontSize(26)
-
-      Text('适合：成年犬\n\n食材：\n🥩 牛肉 100g\n🎃 南瓜 40g\n🥕 胡萝卜 20g\n\n制作：\n1. 食材煮熟\n2. 切碎混合\n3. 放凉后喂食\n\n注意：辅助饮食，不替代完整宠粮')
-        .margin({ top: 24 })
+      Text(this.title).fontSize(26)
+      Text(this.content).margin({ top: 24 })
+      Text('注意：辅助饮食，不替代完整宠粮')
+        .margin({ top: 20 })
     }
     .padding(24)
   }
