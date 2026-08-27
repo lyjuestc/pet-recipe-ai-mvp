@@ -1,15 +1,11 @@
-import { JsonParser, RecipeOutput } from './JsonParser';
+export interface RecipePipelineInput {
+  petName: string;
+  species: string;
+  weight: number;
+}
 
 export class RecipePipeline {
-  async generate(prompt: string): Promise<RecipeOutput> {
-    // OpenRouter integration point.
-    const mockResponse = JSON.stringify({
-      title: 'Pet healthy meal',
-      calories: 300,
-      ingredients: ['chicken', 'carrot'],
-      warnings: []
-    });
-
-    return new JsonParser().parse(mockResponse);
+  buildPrompt(input: RecipePipelineInput): string {
+    return `Create a safe recipe for ${input.petName}, ${input.species}, weight ${input.weight}kg.`;
   }
 }

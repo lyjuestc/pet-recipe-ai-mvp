@@ -1,9 +1,16 @@
+export interface NutritionContext {
+  species: string;
+  weight: number;
+  age: number;
+  calories: number;
+}
+
 export class EnergyCalculator {
-  rer(weightKg: number): number {
-    return 70 * Math.pow(weightKg, 0.75);
+  rer(weight: number): number {
+    return 70 * Math.pow(weight, 0.75);
   }
 
-  mer(weightKg: number, activityFactor: number = 1.2): number {
-    return this.rer(weightKg) * activityFactor;
+  mer(weight: number, factor: number = 1.2): number {
+    return this.rer(weight) * factor;
   }
 }
