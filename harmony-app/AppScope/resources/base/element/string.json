@@ -1,0 +1,7 @@
+{
+  "string": [
+    { "name": "app_name", "value": "Pet Recipe AI" },
+    { "name": "app_desc", "value": "AI宠物食谱助手" },
+    { "name": "entry_desc", "value": "Pet Recipe AI entry module" }
+  ]
+}

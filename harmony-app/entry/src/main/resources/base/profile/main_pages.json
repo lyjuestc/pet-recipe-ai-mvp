@@ -1,0 +1,10 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/PetCreatePage",
+    "pages/GenerateRecipePage",
+    "pages/RecipeDetailPage",
+    "pages/HistoryPage",
+    "pages/SettingsPage"
+  ]
+}
